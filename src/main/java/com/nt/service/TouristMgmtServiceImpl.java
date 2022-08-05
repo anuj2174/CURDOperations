@@ -17,4 +17,8 @@ public class TouristMgmtServiceImpl implements ITouristMgmtService {
 		return "Tourist is Registered  having id ::"+idVal;
 	}
 
+public List<Tourist> get AllTourist(Tourist tourist){
+
+}
+
 }

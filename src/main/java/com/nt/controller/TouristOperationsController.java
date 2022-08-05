@@ -29,4 +29,7 @@ public class TouristOperationsController {
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	int a=10;
+	int b=20;
 }

@@ -1,5 +1,7 @@
 package com.nt.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +19,11 @@ public class TouristMgmtServiceImpl implements ITouristMgmtService {
 		return "Tourist is Registered  having id ::"+idVal;
 	}
 
-public List<Tourist> get AllTourist(Tourist tourist){
-
+	
+  public List<Tourist> getAllTourist(){
+	List<Tourist> list = touristrepo.findAll();
+	list.sort((t1,t2)->t1.getTId().compareTo(t2.getTId()));
+	return list;
 }
 
 }

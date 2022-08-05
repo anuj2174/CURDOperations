@@ -1,8 +1,11 @@
 package com.nt.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +33,14 @@ public class TouristOperationsController {
 		}
 	}
 	
-	int a=10;
-	int b=20;
+	@GetMapping("/all")
+	public ResponseEntity<?> displayTourists(){
+		try {
+			List<Tourist> list = service.getAllTourist();
+			return new ResponseEntity<List<Tourist>>(list,HttpStatus.OK);
+		}catch(Exception e) {
+			return new ResponseEntity<String>("Problem in Fetching Tourists", 
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }
